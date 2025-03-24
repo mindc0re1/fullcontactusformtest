@@ -23,7 +23,7 @@ These scripts:
 1. Clone this repo: `https://github.com/mindc0re1/fullcontactusformtest.git`
 2. Open in IntelliJ IDEA.
 3. Ensure Java and Gradle are installed. I have used Java: v. 17.0.12 and Gradle 7.4
-4. Ru a test on MainPageTest.java
+4. Run a test on Contact.java
 
 ## VIDEO
 [Link](https://drive.google.com/file/d/17q4NGyWUdd69pjir-ijkFa5mPqHrGQPg/view?usp=sharing).
