@@ -20,12 +20,13 @@ public class ContactWithPageObjects {
     @Test
     void Contact() {
         // Unsuccessful submission test
-        supportPage.openPage();
+        supportPage.openPage()
         //supportPage.openPageSuccess();
-        supportPage.setFirstName("First Name");
-        supportPage.setLastName("Last Name");
-        supportPage.setPhone("Phone");
-        supportPage.setCompany("Company");
+
+        .setFirstName("First Name")
+        .setLastName("Last Name")
+        .setPhone("Phone")
+        .setCompany("Company");
 
 
         $("#input_1_4").uploadFromClasspath("img/1.jpg");
@@ -35,13 +36,13 @@ public class ContactWithPageObjects {
                 .shouldHave(text("There was a problem with your submission. Please review the fields below."));
 
         // Successful submission test
-        supportPage.openPageSuccess();
-        supportPage.setEmail("test@grok.com");
-        supportPage.setDescription("Description");
-        supportPage.setFirstName("First Name");
-        supportPage.setLastName("Last Name");
-        supportPage.setPhone("Phone");
-        supportPage.setCompany("Company");
+        supportPage.openPageSuccess()
+        .setEmail("test@grok.com")
+        .setDescription("Description")
+        .setFirstName("First Name")
+        .setLastName("Last Name")
+        .setPhone("Phone")
+        .setCompany("Company");
        // $("#input_1_7").setValue("test@grok.com");
        // $("#input_1_3").setValue("Description");
 
@@ -69,4 +70,5 @@ public class ContactWithPageObjects {
         $("#gform_submit_button_1").shouldBe(visible).shouldBe(enabled).click();
         $("#gform_confirmation_message_1").shouldHave(text("Thank you."));
     }
+
 }
