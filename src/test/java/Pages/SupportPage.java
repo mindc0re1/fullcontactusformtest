@@ -1,5 +1,7 @@
 package Pages;
 
+import Pages.components.Thanks;
+import pages.DropdownComponent;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -7,6 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class SupportPage {
     private final String TITLE_TEXT = "Support";
     private final String TITLE_TEXT2 = "Thank you";
+    Thanks thanks = new Thanks();
     private SelenideElement
             lastNameInput = $("#input_1_5_6"),
             firstNameInput = $("#input_1_5_3"),
@@ -60,7 +63,7 @@ public class SupportPage {
         return this;
     }
 
-    public SupportPage setEmail(String value) {
+    public SupportPage setEmail(String value ) {
         emailInput.setValue(value);
 
         return this;
@@ -73,7 +76,25 @@ public class SupportPage {
     }
 
 
+    public DropdownComponent issueCategory() {
+        return new DropdownComponent("#input_1_1");
+    }
+
+    public DropdownComponent daxtraProductAffected() {
+        return new DropdownComponent("#input_1_2");
+    }
+
+    public DropdownComponent country() {
+        return new DropdownComponent("#input_1_10");
+    }
+
     public String getTITLE_TEXT2() {
         return TITLE_TEXT2;
     }
+
+    public SupportPage  verifyThanksAppears () {
+      thanks.verifyThanksAppears();
+        return this;
+    }
+
 }

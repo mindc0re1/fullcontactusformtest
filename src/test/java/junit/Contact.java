@@ -80,27 +80,6 @@ public class Contact {
         $("#gform_confirmation_message_1").shouldHave(text("Thank you."));
 
 
-        // $("#input_1_2").click();
-        //$("#input_1_2").shouldBe(Condition.visible).selectOptionContainingText("Daxtra Parser");
-
-        //Test Issue Category
-        //$("#input_1_1").click();
-        //$(".medium.gfield_select").selectOption("P3 – Minor – Isolated User Issues");
-        //Issue field:
-        //$("#input_1_2").click();
-        //$(".medium.gfield_select").selectOption("Daxtra Parser (CVX)");
-       //sleep(2000);
-        //Daxtra Product Affected input_1_2 Daxtra Search
-        //Attached file
-        //$("#input_1_4").uploadFromClasspath("img/1.jpg");
-        //$("#input_1_4").uploadFile(new File("src/test/resources/img/1.jpg"));
-        //input_1_4 src/test/resources/img/1.png
-//
-
-
-
-
-
 
 
     }

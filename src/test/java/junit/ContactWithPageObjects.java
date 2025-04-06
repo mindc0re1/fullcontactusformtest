@@ -8,14 +8,8 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ContactWithPageObjects {
-    SupportPage supportPage = new SupportPage();
+public class ContactWithPageObjects extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "2560x1140";
-    }
 
     @Test
     void Contact() {
@@ -32,8 +26,7 @@ public class ContactWithPageObjects {
         $("#input_1_4").uploadFromClasspath("img/1.jpg");
         $("#input_1_4").uploadFile(new File("src/test/resources/img/1.jpg"));
         $("#gform_submit_button_1").click();
-        $(".gform_validation_errors.validation_error")
-                .shouldHave(text("There was a problem with your submission. Please review the fields below."));
+        $(".gform_validation_errors.validation_error").shouldHave(text("There was a problem with your submission. Please review the fields below."));
 
         // Successful submission test
         supportPage.openPageSuccess()
@@ -45,18 +38,15 @@ public class ContactWithPageObjects {
         .setCompany("Company");
        // $("#input_1_7").setValue("test@grok.com");
        // $("#input_1_3").setValue("Description");
+// Issue Category using DropdownComponent
+        supportPage.issueCategory().selectOption("P3 – Minor – Isolated User Issues");
 
-        // Issue Category
-        $("#input_1_1").click();
-        $("#input_1_1").selectOption("P3 – Minor – Isolated User Issues");
+        // Daxtra Product Affected using DropdownComponent
+        supportPage.daxtraProductAffected().selectOption("Daxtra Parser (CVX)");
 
-        // Daxtra Product Affected
-        $("#input_1_2").click();
-        $("#input_1_2").selectOption("Daxtra Parser (CVX)");
+        // Country using DropdownComponent
+        supportPage.country().selectOption("United Kingdom");
 
-        // Country
-        $("#input_1_10").click();
-        $("#input_1_10").selectOption("United Kingdom");
 
         // Terms
         $("#choice_1_12_1").click();
@@ -68,7 +58,8 @@ public class ContactWithPageObjects {
 
         // Scroll to the button and click
         $("#gform_submit_button_1").shouldBe(visible).shouldBe(enabled).click();
-        $("#gform_confirmation_message_1").shouldHave(text("Thank you."));
+
+        supportPage.verifyThanksAppears ();
     }
 
 }
