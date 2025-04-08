@@ -26,7 +26,7 @@ These scripts:
 4. Run a test on ContactWithPageObjects
 
 ## VIDEO
-[Link](https://drive.google.com/file/d/17q4NGyWUdd69pjir-ijkFa5mPqHrGQPg/view?usp=sharing).
+[Link](https://drive.google.com/file/d/1GhIidj4zwSPaGDu83hESQzK8jYT_0yur/view?usp=sharing).
 
 ## Contact
 Reach me at [mrkursin@vk.com](mailto:mrkursin@vk.com) or [LinkedIn](https://www.linkedin.com/in/roman-kursin-81343534b/).
