@@ -12,12 +12,12 @@ Welcome to my automation testing project! This repository contains scripts built
     
 ## How It Works
 These scripts:
-Automate fields
-Automate wrong credentials checks.
-Automate successful submission info to support
-Make sure the front-end is working.
-Make sure the back-end is working.
-Make sure the data base is working.
+- Automate fields
+- Automate wrong credentials checks.
+- Automate successful submission info to support
+- Make sure the front-end is working.
+- Make sure the back-end is working.
+- Make sure the data base is working.
 
 ## Setup
 1. Clone this repo: `https://github.com/mindc0re1/fullcontactusformtest.git`
