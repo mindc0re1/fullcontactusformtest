@@ -18,6 +18,7 @@ These scripts:
 - Make sure the front-end is working.
 - Make sure the back-end is working.
 - Make sure the data base is working.
+  ADDED Java Faker
 
 ## Setup
 1. Clone this repo: `https://github.com/mindc0re1/fullcontactusformtest.git`
