@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class Contact {
+public class Contact extends TestBase {
 
     @BeforeAll
     static void beforeAll() {
