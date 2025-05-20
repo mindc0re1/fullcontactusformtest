@@ -1,8 +1,5 @@
 package junit;
 
-import Pages.SupportPage;
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import static com.codeborne.selenide.Condition.*;
@@ -17,10 +14,10 @@ public class ContactWithPageObjects extends TestBase {
         supportPage.openPage()
         //supportPage.openPageSuccess();
 
-        .setFirstName("First Name")
-        .setLastName("Last Name")
-        .setPhone("Phone")
-        .setCompany("Company");
+        .setFirstName(data.firstName)
+        .setLastName(data.lastName)
+        .setPhone(data.phone)
+        .setCompany(data.company);
 
 
         $("#input_1_4").uploadFromClasspath("img/1.jpg");
@@ -30,12 +27,12 @@ public class ContactWithPageObjects extends TestBase {
 
         // Successful submission test
         supportPage.openPageSuccess()
-        .setEmail("test@grok.com")
-        .setDescription("Description")
-        .setFirstName("First Name")
-        .setLastName("Last Name")
-        .setPhone("Phone")
-        .setCompany("Company");
+        .setEmail(data.userEmail)
+        .setDescription(data.address)
+        .setFirstName(data.firstName)
+        .setLastName(data.lastName)
+        .setPhone(data.phone)
+        .setCompany(data.company);
        // $("#input_1_7").setValue("test@grok.com");
        // $("#input_1_3").setValue("Description");
 // Issue Category using DropdownComponent

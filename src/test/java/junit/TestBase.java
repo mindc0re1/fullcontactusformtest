@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 
     public class TestBase {
         SupportPage supportPage = new SupportPage();
+        TestData data = new TestData();
 
         @BeforeAll
         static void beforeAll() {

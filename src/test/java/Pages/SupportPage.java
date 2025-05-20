@@ -1,7 +1,8 @@
+
 package Pages;
 
+import Pages.components.DropdownComponent;
 import Pages.components.Thanks;
-import pages.DropdownComponent;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -74,7 +75,6 @@ public class SupportPage {
 
         return this;
     }
-
 
     public DropdownComponent issueCategory() {
         return new DropdownComponent("#input_1_1");
