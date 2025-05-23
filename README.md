@@ -18,7 +18,8 @@ These scripts:
 - Make sure the front-end is working.
 - Make sure the back-end is working.
 - Make sure the data base is working.
-- ADDED TestData with Java Faker - now input data is changing from test to test.
+- Added TestData with Java Faker - now input data is changing from test to test.
+- Added Allure Reports 
 
 ## Setup
 1. Clone this repo: `https://github.com/mindc0re1/fullcontactusformtest.git`
