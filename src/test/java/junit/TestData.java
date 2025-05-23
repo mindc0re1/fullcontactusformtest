@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class TestData {
 
-    Faker faker = new Faker(new Locale("fr"));
+    Faker faker = new Faker(new Locale("it"));
 
     String firstName = faker.name().firstName();
     String lastName = faker.name().lastName();

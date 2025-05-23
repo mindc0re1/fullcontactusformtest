@@ -4,6 +4,9 @@ package Pages;
 import Pages.components.DropdownComponent;
 import Pages.components.Thanks;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -21,6 +24,7 @@ public class SupportPage {
             finalInput = $("#gform_confirmation_message_1");
 
     public SupportPage openPage() {
+
         open("https://www.croxyproxy.com/");
         $(".fc-button-label").click();
         $(".form-control.input-lg.js-typeahead-domains").setValue("DAXTRA.COM/SUPPORT");
