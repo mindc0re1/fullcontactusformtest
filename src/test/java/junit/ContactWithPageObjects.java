@@ -78,8 +78,6 @@ public class ContactWithPageObjects extends TestBase {
                 supportPage.setCompany(data.company);
         });
 
-            // $("#input_1_7").setValue("test@grok.com");
-            // $("#input_1_3").setValue("Description");
 // Issue Category using DropdownComponent
         step("Dropdown P3 – Minor – Isolated User Issues", () -> {
             supportPage.issueCategory().selectOption("P3 – Minor – Isolated User Issues");
