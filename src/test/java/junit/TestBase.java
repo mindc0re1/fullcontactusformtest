@@ -13,5 +13,6 @@ import org.junit.jupiter.api.BeforeAll;
         static void beforeAll() {
             Configuration.holdBrowserOpen = true;
             Configuration.browserSize = "2560x1140";
+            Configuration.baseUrl = "https://failsafe.test/";
         }
 }
