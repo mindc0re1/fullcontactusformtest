@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 
         @BeforeAll
         static void beforeAll() {
-            Configuration.headless = true;
+            Configuration.headless = false;
             Configuration.holdBrowserOpen = true;
             Configuration.browserSize = "1920x1080";
             Configuration.baseUrl = "https://www.croxyproxy.com/";
