@@ -1,33 +1,57 @@
 name: Test
-
 on: workflow_dispatch
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       # Checkout repository
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Update to latest version
 
       # Make gradlew executable
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
       # Set up Java
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4  # Update to latest version
         with:
           distribution: 'zulu'
           java-version: '17'
 
       # Start Selenoid
       - uses: Xotabu4/selenoid-github-action@v2
+        with:
+          browsers: chrome:133.0  # Pin Chrome version to match local (adjust as needed)
+          shmSize: 2g  # Ensure sufficient shared memory
+
+      # Start application (if needed)
+      - name: Start application
+        run: ./gradlew bootRun &
+        if: true  # Remove this if the app is external
+      - name: Wait for application
+        run: sleep 15  # Adjust based on app startup time
+        if: true  # Remove this if the app is external
+
+      # Verify Selenoid
+      - name: Check Selenoid status
+        run: curl http://localhost:4444/wd/hub/status
 
       # Run tests
       - name: Run tests with Selenide
         run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
 
+      # Archive test artifacts
+      - name: Archive test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            build/reports/tests/
+            build/reports/selenide/
+            build/allure-results/
+
       # Download previous test history
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         if: always()
         continue-on-error: true
         with:
@@ -44,9 +68,11 @@ jobs:
           allure_history: allure-history
 
       # Publish report to GitHub Pages
-      - uses: peaceiris/actions-gh-pages@v2
+      - uses: peaceiris/actions-gh-pages@v4  # Update to latest version
         if: always()
         env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
