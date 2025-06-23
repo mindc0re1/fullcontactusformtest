@@ -11,8 +11,13 @@ import org.junit.jupiter.api.BeforeAll;
 
         @BeforeAll
         static void beforeAll() {
+            Configuration.headless = true;
             Configuration.holdBrowserOpen = true;
-            Configuration.browserSize = "2560x1140";
-            Configuration.baseUrl = "https://failsafe.test/";
+            Configuration.browserSize = "1920x1080";
+            Configuration.baseUrl = "https://www.croxyproxy.com/";
+            Configuration.reportsFolder = "build/reports/selenide";
+            Configuration.screenshots = true;
+            Configuration.savePageSource = true;
+            Configuration.timeout = 20000;
         }
 }
