@@ -25,7 +25,7 @@ These scripts:
 ## Setup
 See the test reports on CI:
 
-1. Run the latest test results on CI via a link - press on the link: https://mindc0re1.github.io/fullcontactusformtest/14/index.html#suites/a8217474f4d01a3ac8a1cb34069aa6d9/a834bf029d515152/
+1. Run the latest test results on CI via a link - please press on the link: https://mindc0re1.github.io/fullcontactusformtest/14/index.html#suites/a8217474f4d01a3ac8a1cb34069aa6d9/a834bf029d515152/
 
 On Local Machine:
 
