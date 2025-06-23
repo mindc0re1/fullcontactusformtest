@@ -39,7 +39,7 @@ public class ContactWithPageObjects extends TestBase {
             });
 
         step("Upload file", () -> {
-        $("#input_1_4").uploadFromClasspath("img/1.jpg");
+        $("#input_1_4").shouldBe(visible).uploadFromClasspath("img/1.jpg");
         $("#input_1_4").uploadFile(new File("src/test/resources/img/1.jpg"));
         $("#gform_submit_button_1").click();
             });
@@ -94,7 +94,7 @@ public class ContactWithPageObjects extends TestBase {
             });
 
         step("Upload file", () -> {
-            $("#input_1_4").uploadFromClasspath("img/1.jpg");
+            $("#input_1_4").shouldBe(visible).uploadFromClasspath("img/1.jpg");
             $("#input_1_4").uploadFile(new File("src/test/resources/img/1.jpg"));
            // $("#gform_submit_button_1").click();
         });
