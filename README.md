@@ -18,7 +18,7 @@ These scripts:
 - Make sure the front-end is working.
 - Make sure the back-end is working.
 - Make sure the data base is working.
- - UPDATES:
+ + UPDATES:
 - Added TestData with Java Faker - now input data is changing from test to test.
 - Added Allure Reports
 - Added CI enviroment - remote GitHub repository
