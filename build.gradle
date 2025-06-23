@@ -4,6 +4,16 @@ plugins {
 
 }
 
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    systemProperty "allure.results.directory", "$buildDir/allure-results"
+    systemProperty "selenide.reportsFolder", "$buildDir/allure-results"
+    systemProperty "selenide.savePageSource", "true"
+    systemProperty "selenide.screenshots", "true"
+}
+
 group 'org.example'
 version '1.0-SNAPSHOT'
 
