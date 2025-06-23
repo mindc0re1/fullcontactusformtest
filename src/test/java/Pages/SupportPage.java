@@ -26,6 +26,7 @@ public class SupportPage {
     public SupportPage openPage() {
 
         open("https://www.croxyproxy.com/");
+        sleep(3000);
         $(".fc-button-label").click();
         $(".form-control.input-lg.js-typeahead-domains").setValue("DAXTRA.COM/SUPPORT");
         $("#requestSubmit").click();
