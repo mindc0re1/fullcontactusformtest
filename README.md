@@ -28,6 +28,9 @@ See the test reports on CI:
 
 1. Run the latest test results on CI via a link - please press on the link: https://mindc0re1.github.io/fullcontactusformtest/14/index.html#suites/a8217474f4d01a3ac8a1cb34069aa6d9/a834bf029d515152/
 
+## VIDEO
+[Link](https://drive.google.com/file/d/1QENy1cgr2-AHL880bWYGT9GBuCxZlY2d/view?usp=sharing).
+
 On Local Machine:
 
 1. Clone this repo: `https://github.com/mindc0re1/fullcontactusformtest.git`
