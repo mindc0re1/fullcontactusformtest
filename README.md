@@ -1,5 +1,5 @@
 # QA Automation Scripts
-Welcome to my automation testing project! This repository contains scripts built with **Selenium**, **Selenide**, **Java**, **Gradle**, and **JUnit** to test website functionality, like field validation and info checks.
+Welcome to my automation framework project made for Daxtra Technologies. This repository contains scripts built with **Selenium**, **Selenide**, **Java**, **Gradle**, and **JUnit** to test website functionality, like field validation and info checks.
 
 ## Overview
 - **Purpose**: Automate Support page functionality
