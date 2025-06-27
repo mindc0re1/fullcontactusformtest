@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class ContactWithPageObjects extends TestBase {
-
     @Test
     @Feature("Submission function testing")
     @Owner("Roman Kursin")
