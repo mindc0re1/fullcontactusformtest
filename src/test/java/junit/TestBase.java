@@ -18,7 +18,10 @@ public class TestBase {
 
         @BeforeAll
         static void beforeAll() {
+<<<<<<< HEAD
             Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+=======
+>>>>>>> e068459394fa41b3c5a201dbe2bad37bed3b86eb
             Configuration.headless = false;
             Configuration.holdBrowserOpen = true;
             Configuration.browserSize = "1920x1080";
