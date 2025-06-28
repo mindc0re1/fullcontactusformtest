@@ -26,6 +26,7 @@ public class TestBase {
             Configuration.screenshots = true;
             Configuration.savePageSource = true;
             Configuration.timeout = 20000;
+
 Configuration.browser = "chrome";
 Configuration.browserVersion = "128.0";
             DesiredCapabilities capabilities = new DesiredCapabilities();
