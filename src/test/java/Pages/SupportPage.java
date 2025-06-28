@@ -27,7 +27,7 @@ public class SupportPage {
 
         open("https://www.croxyproxy.com/");
         sleep(3000);
-       // $(".fc-button-label").click();
+       $(".fc-button-label").click();
         $(".form-control.input-lg.js-typeahead-domains").setValue("DAXTRA.COM/SUPPORT");
         $("#requestSubmit").click();
         $(".wp-block-b1-header__info").shouldHave(text(TITLE_TEXT));
