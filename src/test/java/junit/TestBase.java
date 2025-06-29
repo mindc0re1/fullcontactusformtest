@@ -2,6 +2,8 @@ package junit;
 
 import Pages.SupportPage;
 import com.codeborne.selenide.Configuration;
+import junit.helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -39,5 +41,14 @@ Configuration.browserVersion = "128.0";
 
             Configuration.browserCapabilities = capabilities;
         }
+
+        @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        //Attach.video();
         }
+}
+
 
