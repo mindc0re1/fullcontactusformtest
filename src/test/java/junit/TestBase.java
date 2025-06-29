@@ -2,53 +2,63 @@ package junit;
 
 import Pages.SupportPage;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import junit.helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-
 
 public class TestBase {
-        SupportPage supportPage = new SupportPage();
-        TestData data = new TestData();
+    SupportPage supportPage = new SupportPage();
+    TestData data = new TestData();
 
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "128.0";
+        Configuration.headless = false;
+        Configuration.holdBrowserOpen = true;
+        Configuration.browserSize = "1920x1080";
+        Configuration.reportsFolder = "build/reports/selenide";
+        Configuration.screenshots = true;
+        Configuration.savePageSource = true;
+        Configuration.timeout = 20000;
 
-        @BeforeAll
-        static void beforeAll() {
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("browserVersion", "128.0");
+        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
+            put("enableVNC", true);
+            put("enableVideo", true);
+            put("sessionTimeout", "15m");
+            put("env", new ArrayList<String>() {{
+                add("TZ=UTC");
+            }});
+            put("labels", new HashMap<String, Object>() {{
+                put("manual", "true");
+            }});
+            put("name", "Selenide Test");
+        }});
 
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browserCapabilities = options;
+    }
 
-            Configuration.headless = false;
-            Configuration.holdBrowserOpen = true;
-            Configuration.browserSize = "1920x1080";
-            Configuration.baseUrl = "https://www.croxyproxy.com/";
-            Configuration.reportsFolder = "build/reports/selenide";
-            Configuration.screenshots = true;
-            Configuration.savePageSource = true;
-            Configuration.timeout = 20000;
-Configuration.browser = "chrome";
-Configuration.browserVersion = "128.0";
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                    "enableVNC", true,
-                    "enableVideo", true
-            ));
+    @BeforeEach
+    void addListeners() {
+        SelenideLogger.removeListener("allure"); // prevent duplicates
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
 
-            Configuration.browserCapabilities = capabilities;
-        }
-
-        @AfterEach
+    @AfterEach
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        //Attach.video();
-        }
+        Attach.addVideoAttachment(Attach.generateVideoHtml()); // safe workaround
+    }
 }
-
-

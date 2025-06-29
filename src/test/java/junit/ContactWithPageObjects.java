@@ -16,7 +16,7 @@ public class ContactWithPageObjects extends TestBase {
     @Story("Creating the issue")
     @Severity(SeverityLevel.BLOCKER)
     void Contact() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
         // Unsuccessful submission test
         step("Open Support page (unsuccessful path)", () -> {
             supportPage.openPage();

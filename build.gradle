@@ -1,17 +1,6 @@
 plugins {
     id 'java'
-   id 'io.qameta.allure' version '2.10.0'
-
-}
-
-test {
-    useJUnitPlatform()
-    systemProperties(System.getProperties())
-
-    systemProperty "allure.results.directory", "$buildDir/allure-results"
-    systemProperty "selenide.reportsFolder", "$buildDir/allure-results"
-    systemProperty "selenide.savePageSource", "true"
-    systemProperty "selenide.screenshots", "true"
+    id 'io.qameta.allure' version '2.10.0'
 }
 
 group 'org.example'
@@ -34,33 +23,48 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    testImplementation('com.codeborne:selenide:7.2.3')
-    testImplementation("io.qameta.allure:allure-selenide:${allureVersion}")
-    testImplementation('org.slf4j:slf4j-simple:2.0.13')
-    testImplementation('com.github.javafaker:javafaker:1.0.2')
+    testImplementation 'com.codeborne:selenide:7.2.3'
+    testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-junit5:${allureVersion}"
+    testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    // ✅ Required for @Attachment and aspectOf()
+    testRuntimeOnly 'org.aspectj:aspectjweaver:1.9.20'
 }
 
+// ✅ Enable AspectJ weaving with the javaagent
 test {
     useJUnitPlatform()
+
+    // Allure/selenide config
     systemProperties(System.getProperties())
+    systemProperty "allure.results.directory", "$buildDir/allure-results"
+    systemProperty "selenide.reportsFolder", "$buildDir/allure-results"
+    systemProperty "selenide.savePageSource", "true"
+    systemProperty "selenide.screenshots", "true"
+
+    // ✅ This passes aspectjweaver to JVM
+    doFirst {
+        def weaverJar = configurations.testRuntimeClasspath.find { it.name.contains("aspectjweaver") }
+        if (weaverJar) {
+            jvmArgs += "-javaagent:${weaverJar}"
+        }
+    }
 }
 
 allure {
-
     report {
-        version.set ("2.19.0")
+        version.set("2.19.0")
     }
-    adapter{
-       aspectjWeaver.set(true)
-        frameworks{
-            JUnit5{
+    adapter {
+        aspectjWeaver.set(true) // still okay to keep
+        frameworks {
+            junit5 {
                 adapterVersion.set("2.19.0")
             }
         }
     }
-
 }
