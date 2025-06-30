@@ -23,7 +23,7 @@ public class TestBase {
         Configuration.browser = "chrome";
         Configuration.browserVersion = "128.0";
         Configuration.headless = false;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
         Configuration.browserSize = "1920x1080";
         Configuration.reportsFolder = "build/reports/selenide";
         Configuration.screenshots = true;
@@ -35,7 +35,7 @@ public class TestBase {
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
             put("enableVNC", true);
             put("enableVideo", true);
-            put("sessionTimeout", "15m");
+            put("sessionTimeout", "2");
             put("env", new ArrayList<String>() {{
                 add("TZ=UTC");
             }});
