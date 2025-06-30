@@ -20,8 +20,9 @@ These scripts:
 - Make sure the data base is working.
  + UPDATES:
 - Added TestData with Java Faker - now input data is changing from test to test.
-- Added Allure Reports
-- Added CI enviroment - remote GitHub repository
+- Added Allure Reports - Screenshot, 
+- Added CI enviroment - remote Jenkins built server + Selenoid UI docker:
+  Jenkins takes the repository from Github, build the logic and send it to Selenoid UI where browser runs in Docker Container.
 
 ## Setup
 See the test reports on CI:
