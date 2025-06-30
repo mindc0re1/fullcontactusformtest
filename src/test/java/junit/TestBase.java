@@ -35,7 +35,7 @@ public class TestBase {
         options.setCapability("selenoid:options", new HashMap<String, Object>() {{
             put("enableVNC", true);
             put("enableVideo", true);
-            put("sessionTimeout", "2");
+            put("sessionTimeout", "2m");
             put("env", new ArrayList<String>() {{
                 add("TZ=UTC");
             }});
