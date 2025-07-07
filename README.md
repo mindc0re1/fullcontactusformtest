@@ -24,13 +24,9 @@ These scripts:
 - Added CI enviroment - remote Jenkins built server + Selenoid UI docker:
   Jenkins takes the repository from Github, build the logic and send it to Selenoid UI where browser runs in Docker Container.
 
-## Setup
-See the test reports on CI:
-
-1. Run the latest test results on CI via a link - please press on the link: https://mindc0re1.github.io/fullcontactusformtest/14/index.html#suites/a8217474f4d01a3ac8a1cb34069aa6d9/a834bf029d515152/
 
 ## VIDEO
-[Link](https://drive.google.com/file/d/1QENy1cgr2-AHL880bWYGT9GBuCxZlY2d/view?usp=sharing).
+[Link](https://drive.google.com/file/d/1uOIs9_mEPUYjByA46SXNFSSBMQ27n5nr/view?usp=sharing).
 
 On Local Machine:
 
@@ -40,7 +36,7 @@ On Local Machine:
 4. Run a test on ContactWithPageObjects
 
 ## VIDEO
-[Link](https://drive.google.com/file/d/1GhIidj4zwSPaGDu83hESQzK8jYT_0yur/view?usp=sharing).
+[Link](https://drive.google.com/file/d/1uOIs9_mEPUYjByA46SXNFSSBMQ27n5nr/view?usp=sharing).
 
 ## Contact
 Reach me at [mrkursin@vk.com](mailto:mrkursin@vk.com) or [LinkedIn](https://www.linkedin.com/in/roman-kursin-81343534b/).
